@@ -12,7 +12,6 @@ public class Strings {
         x = x.toLowerCase().replace(" ", "");        //убираем регистр и пробелы
         y = y.toLowerCase().replace(" ", "");
 
-
         String[] a = x.split("");  //в массив и сортировка
         Arrays.sort(a);
         x = Arrays.toString(a);
@@ -31,3 +30,17 @@ public class Strings {
     }
 }
 
+
+/*
+1) после удаления пробелов можно было сравнить длину и сразу принять решение
+2) так же можно было не преобразовывать массив в строку, а сравнить массивы Arrays.equals
+String[] a = x.split("");  //в массив и сортировка
+Arrays.sort(a);
+String[] b = y.split("");
+Arrays.sort(b);
+if (Arrays.equals(a, b)) {
+    System.out.println("Анаграмма");
+}
+else
+    System.out.println("Не анаграмма");
+ */
