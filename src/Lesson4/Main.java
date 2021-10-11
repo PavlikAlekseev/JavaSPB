@@ -3,8 +3,11 @@ package Lesson4;
 import java.util.Arrays;
 
 public class Main {
+
+
     public static void main(String[] args) {
 
+        /*
         One[] ones = {
             new Fizik(5468723, "Смирнов Игорь Сергеевич", 1992, "муж", 5347512),
             new Urik(5648344, "OOO Time", 4563215,4598),
@@ -27,6 +30,22 @@ public class Main {
             new Urik(5648344, "OOO Time", 4563215,4598),
             new Urik(5648344, "OOO Time", 4563215,4598),
         };
+
+         */
+
+        RandomInterf generator = new ClientImpl();
+        One[] ones = new One[20];
+        for (int i = 0; i < ones.length; i++) {
+            ones[i] = generator.getClient();
+        }
+
+        //Кривой вывод для контроля заполнения массива (глазам больно видеть обрезанный результат, но через дебаг видно, что заполнение происходит нормально=)
+        System.out.println("Все клиенты:");
+        System.out.println(Arrays.toString(ones));
+        System.out.println();
+
+
+
 
         //x = количество физиков
         int x = 0;
@@ -54,6 +73,7 @@ public class Main {
 
 
         //вывод физика
+        System.out.println("Клиенты мужчины отсортированные по возрасту:");
         Edit.printArray(strongFizik);
 
     }
