@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
         /*
-        One[] ones = {
+        Client[] Clients = {
             new Fizik(5468723, "Смирнов Игорь Сергеевич", 1992, "муж", 5347512),
             new Urik(5648344, "OOO Time", 4563215,4598),
             new Fizik(4245735, "Смирнова Татьяна Сергеевна", 1990, "жен", 7567457),
@@ -33,15 +33,21 @@ public class Main {
 
          */
 
-        RandomInterf generator = new ClientImpl();
-        One[] ones = new One[20];
-        for (int i = 0; i < ones.length; i++) {
-            ones[i] = generator.getClient();
+        IClientGenerator generatorFizik = new FizikClientGenerator();
+        IClientGenerator generatorUrik = new UrikClientGenerator();
+
+        Client[] clients = new Client[20];
+        for (int i = 0; i < clients.length; i++) {
+            if (i % 2 == 0) {
+                clients[i] = generatorFizik.getFizikClient();
+            }
+            else clients[i] = generatorUrik.getUrikClient();
         }
+
 
         //Кривой вывод для контроля заполнения массива (глазам больно видеть обрезанный результат, но через дебаг видно, что заполнение происходит нормально=)
         System.out.println("Все клиенты:");
-        System.out.println(Arrays.toString(ones));
+        System.out.println(Arrays.toString(clients));
         System.out.println();
 
 
@@ -49,9 +55,9 @@ public class Main {
 
         //x = количество физиков
         int x = 0;
-        for (int i = 0; i < ones.length; i++) {
-            if (ones[i] instanceof Fizik) {
-                if (((Fizik) ones[i]).gender.equals("муж"))
+        for (int i = 0; i < clients.length; i++) {
+            if (clients[i] instanceof Fizik) {
+                if (((Fizik) clients[i]).gender.equals("муж"))
                     x++;
             }
         }
@@ -59,10 +65,10 @@ public class Main {
         //Новый массив из физиков
         Fizik[] strongFizik = new Fizik[x];
         int y = 0;
-        for (int i = 0; i < ones.length; i++) {
-            if (ones[i] instanceof Fizik) {
-                if (((Fizik) ones[i]).gender.equals("муж")) {
-                    strongFizik[y] = (Fizik) ones[i];
+        for (int i = 0; i < clients.length; i++) {
+            if (clients[i] instanceof Fizik) {
+                if (((Fizik) clients[i]).gender.equals("муж")) {
+                    strongFizik[y] = (Fizik) clients[i];
                     y++;
                 }
             }

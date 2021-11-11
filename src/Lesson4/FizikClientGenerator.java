@@ -2,34 +2,32 @@ package Lesson4;
 
 import java.util.Random;
 
-public class ClientImpl  implements RandomInterf {
-
+public class FizikClientGenerator implements IClientGenerator {
 
 
     @Override
-    public One getClient() {
+    public Client getFizikClient() {
         int id = randomId();
         int inn = randomInn();
-        int ogrn = randomOgrn();
         int year = randomYear();
         String fioM = randomFioMale();
         String fioF = randomFioFemale();
-        String name = randomName();
         String gender = randomGender();
 
-        if (id > 2500000) {
-            return new Urik(id, name, inn, ogrn);
-        }
-        else {
-            if (gender.equals("муж")){
-                return new Fizik(id,fioM,year, gender, inn);
-            }
-            else return new Fizik(id,fioF,year, gender, inn);
-        }
 
+        if (gender.equals("муж")){
+            return new Fizik(id, fioM, year, gender, inn);
+        }
+        else
+            return new Fizik(id, fioF, year, gender, inn);
     }
 
-    public int randomId() {
+    @Override
+    public Client getUrikClient() {
+        return null;
+    }
+
+    private int randomId() {
         int min = 1000000;
         int max = 5000000;
         int diff = max - min;
@@ -39,7 +37,7 @@ public class ClientImpl  implements RandomInterf {
         return i;
     }
 
-    public int randomInn() {
+    private int randomInn() {
         int min = 100000;
         int max = 500000;
         int diff = max - min;
@@ -49,26 +47,9 @@ public class ClientImpl  implements RandomInterf {
         return i;
     }
 
-    public int randomOgrn() {
-        int min = 50;
-        int max = 9000;
-        int diff = max - min;
-        Random random = new Random();
-        int i = random.nextInt(diff);
-        i += min;
-        return i;
-    }
-
-    public String randomName() {
-        String[] Name = {"ООО Фирма", "Время", "АО Часы", "ИП Снег", "АО Газпром", "ПАО ВТБ", "СНТ Колено"};
-        Random random = new Random();
-        int x = random.nextInt(Name.length);
-        return Name[x];
-
-    }
 
 
-    public int randomYear() {
+    private int randomYear() {
         int min = 1900;
         int max = 2019;
         int diff = max - min;
