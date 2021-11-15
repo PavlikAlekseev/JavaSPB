@@ -2,7 +2,7 @@ package Lesson7_1;
 
 public class Main {
     public static void main(String[] args) {
-        /* тоже самое, просто тренировался..
+        /* тоже самое c другими типами
         GenericList<String> stringList = new GenericList<>();
         GenericList<Integer> inLtist = new GenericList<>();
         inLtist.add(1);
@@ -39,10 +39,10 @@ public class Main {
 
         objList.remove(3);
         System.out.println("Размер массива после удаления: " + objList.size());
-        System.out.println("Элемент массива №2 после удаления: " + objList.get(3));
+        System.out.println("Элемент массива №3 после удаления: " + objList.get(3));
 
         objList.put("new", 3);
-        System.out.println("Элемент массива №2 после замены: " + objList.get(3));
+        System.out.println("Элемент массива №3 после замены: " + objList.get(3));
 
         System.out.println("Новый массив: ");
         for (int i = 0; i < objList.size(); i++) {
