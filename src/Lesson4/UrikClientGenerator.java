@@ -5,13 +5,10 @@ import java.util.Random;
 public class UrikClientGenerator implements IClientGenerator{
 
 
-    @Override
-    public Client getFizikClient() {
-        return null;
-    }
+
 
     @Override
-    public Client getUrikClient() {
+    public Client getRandomClient() {
         int id = randomId();
         int inn = randomInn();
         int ogrn = randomOgrn();

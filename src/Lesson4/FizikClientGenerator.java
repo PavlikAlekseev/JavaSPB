@@ -6,7 +6,7 @@ public class FizikClientGenerator implements IClientGenerator {
 
 
     @Override
-    public Client getFizikClient() {
+    public Client getRandomClient() {
         int id = randomId();
         int inn = randomInn();
         int year = randomYear();
@@ -22,10 +22,7 @@ public class FizikClientGenerator implements IClientGenerator {
             return new Fizik(id, fioF, year, gender, inn);
     }
 
-    @Override
-    public Client getUrikClient() {
-        return null;
-    }
+
 
     private int randomId() {
         int min = 1000000;

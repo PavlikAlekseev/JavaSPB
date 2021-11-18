@@ -39,9 +39,9 @@ public class Main {
         Client[] clients = new Client[20];
         for (int i = 0; i < clients.length; i++) {
             if (i % 2 == 0) {
-                clients[i] = generatorFizik.getFizikClient();
+                clients[i] = generatorFizik.getRandomClient();
             }
-            else clients[i] = generatorUrik.getUrikClient();
+            else clients[i] = generatorUrik.getRandomClient();
         }
 
 
